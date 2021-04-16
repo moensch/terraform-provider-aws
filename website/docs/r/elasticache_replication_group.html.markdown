@@ -155,7 +155,7 @@ The following arguments are supported:
 * `transit_encryption_enabled` - (Optional) Whether to enable encryption in transit.
 * `auth_token` - (Optional) The password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
 * `kms_key_id` - (Optional) The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `at_rest_encryption_enabled = true`.
-* `engine_version` - (Optional) The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `actual_engine_version`, [defined below](#actual_engine_version).
+* `engine_version` - (Optional) The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, [defined below](#engine_version_actual).
 * `parameter_group_name` - (Optional) The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
 * `port` – (Optional) The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
 * `subnet_group_name` - (Optional) The name of the cache subnet group to be used for the replication group.
@@ -193,7 +193,7 @@ In addition to all arguments above, the following attributes are exported:
 
 * `arn` - The Amazon Resource Name (ARN) of the created ElastiCache Replication Group.
 * `id` - The ID of the ElastiCache Replication Group.
-* `actual_engine_version` - The running version of the cache engine.
+* `engine_version_actual` - The running version of the cache engine.
 * `cluster_enabled` - Indicates if cluster mode is enabled.
 * `configuration_endpoint_address` - The address of the replication group configuration endpoint when cluster mode is enabled.
 * `primary_endpoint_address` - (Redis only) The address of the endpoint for the primary node in the replication group, if the cluster mode is disabled.
